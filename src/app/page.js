@@ -22,7 +22,7 @@ export default function Home() {
     <div className={styles.page}>
       <header className={`${styles.header} ${isScrolled ? styles.headerVisible : ''}`}>
         <div className={styles.headerContent}>
-          <h1 className={styles.headerLogo}>Effective Gain</h1>
+          <h1 className={styles.headerLogo}>Effective Gain AI</h1>
           <nav className={styles.nav}>
             <a href="#home" className={styles.navLink}>Home</a>
             <a href="#sobre" className={styles.navLink}>Sobre</a>
