@@ -6,11 +6,13 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-space-grotesk);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background: #000;
+  background: linear-gradient(135deg, #000000 0%, #030303 25%, #0a0a0a 50%, #121212 75%, #1f1f1f 100%);
+  margin: 0;
+  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +22,7 @@
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
-    background: #000;
+    background: linear-gradient(135deg, #000000 0%, #030303 25%, #0a0a0a 50%, #121212 75%, #1f1f1f 100%);
   }
 }
 
@@ -214,6 +216,38 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Remove qualquer borda no final da página */
+.page > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Garante que a seção de contatos não tenha bordas */
+#contato {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+#contato > div {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Remove bordas do container principal */
+.page > div:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
 }
 
 .section::before {
@@ -482,5 +516,175 @@ a.secondary {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 6px solid rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes waveGlow1 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes waveGlow2 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow3 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes waveGlow4 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow5 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes waveGlow6 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow7 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes waveGlow8 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow9 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes waveGlow10 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow11 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes waveGlow12 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes waveGlow13 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1.0; }
+}
+
+@keyframes waveGlow14 {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes waveGlow15 {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1.0; }
+}
+
+.waveAnimation {
+  animation: none;
+}
+
+.waveLine1 {
+  animation: waveGlow1 4s ease-in-out infinite;
+}
+
+.waveLine2 {
+  animation: waveGlow2 6s ease-in-out infinite;
+}
+
+.waveLine3 {
+  animation: waveGlow3 5s ease-in-out infinite;
+}
+
+.waveLine4 {
+  animation: waveGlow4 7s ease-in-out infinite;
+}
+
+.waveLine5 {
+  animation: waveGlow5 4.5s ease-in-out infinite;
+}
+
+.waveLine6 {
+  animation: waveGlow6 5.5s ease-in-out infinite;
+}
+
+.waveLine7 {
+  animation: waveGlow7 6.5s ease-in-out infinite;
+}
+
+.waveLine8 {
+  animation: waveGlow8 4s ease-in-out infinite;
+}
+
+.waveLine9 {
+  animation: waveGlow9 5.5s ease-in-out infinite;
+}
+
+.waveLine10 {
+  animation: waveGlow10 6.5s ease-in-out infinite;
+}
+
+.waveLine11 {
+  animation: waveGlow11 4.5s ease-in-out infinite;
+}
+
+.waveLine12 {
+  animation: waveGlow12 5s ease-in-out infinite;
+}
+
+.waveLine13 {
+  animation: waveGlow13 6s ease-in-out infinite;
+}
+
+.waveLine14 {
+  animation: waveGlow14 4.5s ease-in-out infinite;
+}
+
+.waveLine15 {
+  animation: waveGlow15 5.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
   }
 }
