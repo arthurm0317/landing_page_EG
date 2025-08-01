@@ -877,7 +877,8 @@ export default function Home() {
               backdropFilter="blur(10px)"
               border="1px solid rgba(255, 255, 255, 0.1)"
               borderRadius="xl"
-              p={{ base: 6, md: 8 }}
+              p={{ base: 8, md: 12 }}
+              pb={{ base: 12, md: 16 }}
               maxW={{ base: "100%", md: "500px" }}
               textAlign="center"
               transition="all 0.3s ease"
@@ -916,30 +917,30 @@ export default function Home() {
               </Box>
               
               {/* Lista de benefícios */}
-              <Flex direction="column" gap={3} mb={8} textAlign="left">
-                <Flex align="center" gap={3}>
-                  <Box w="20px" h="20px" color="green.400" flexShrink={0}>
-                    <i className="bi bi-check-circle" style={{ fontSize: '20px' }}></i>
+              <Flex direction="column" gap={4} mb={16} align="center">
+                <Flex align="center" gap={3} justify="center" w="100%" maxW="300px">
+                  <Box w="24px" h="24px" color="green.400" flexShrink={0}>
+                    <i className="bi bi-check-circle" style={{ fontSize: '24px' }}></i>
                   </Box>
-                  <Text color="gray.300">CRM Kanban Intuitivo</Text>
+                  <Text color="gray.300" fontSize="md">CRM Kanban Intuitivo</Text>
                 </Flex>
-                <Flex align="center" gap={3}>
-                  <Box w="20px" h="20px" color="green.400" flexShrink={0}>
-                    <i className="bi bi-check-circle" style={{ fontSize: '20px' }}></i>
+                <Flex align="center" gap={3} justify="center" w="100%" maxW="300px">
+                  <Box w="24px" h="24px" color="green.400" flexShrink={0}>
+                    <i className="bi bi-check-circle" style={{ fontSize: '24px' }}></i>
                   </Box>
-                  <Text color="gray.300">Analytics em Tempo Real</Text>
+                  <Text color="gray.300" fontSize="md">Analytics em Tempo Real</Text>
                 </Flex>
-                <Flex align="center" gap={3}>
-                  <Box w="20px" h="20px" color="green.400" flexShrink={0}>
-                    <i className="bi bi-check-circle" style={{ fontSize: '20px' }}></i>
+                <Flex align="center" gap={3} justify="center" w="100%" maxW="300px">
+                  <Box w="24px" h="24px" color="green.400" flexShrink={0}>
+                    <i className="bi bi-check-circle" style={{ fontSize: '24px' }}></i>
                   </Box>
-                  <Text color="gray.300">Automação Inteligente</Text>
+                  <Text color="gray.300" fontSize="md">Automação Inteligente</Text>
                 </Flex>
-                <Flex align="center" gap={3}>
-                  <Box w="20px" h="20px" color="green.400" flexShrink={0}>
-                    <i className="bi bi-check-circle" style={{ fontSize: '20px' }}></i>
+                <Flex align="center" gap={3} justify="center" w="100%" maxW="300px">
+                  <Box w="24px" h="24px" color="green.400" flexShrink={0}>
+                    <i className="bi bi-check-circle" style={{ fontSize: '24px' }}></i>
                   </Box>
-                  <Text color="gray.300">Suporte Personalizado</Text>
+                  <Text color="gray.300" fontSize="md">Suporte Personalizado</Text>
                 </Flex>
               </Flex>
               
@@ -975,7 +976,7 @@ export default function Home() {
               
               {/* Texto adicional */}
               <Text color="gray.400" fontSize="sm" mt={4}>
-                ✨ Comece sua transformação digital hoje mesmo!
+              
               </Text>
             </Box>
           </Flex>
