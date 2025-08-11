@@ -1601,7 +1601,7 @@ export default function Home() {
 
       <section id="contato" className={styles.section} style={{ marginBottom: 0, paddingBottom: 0 }}>
         <Box 
-          bg="linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)"
+          bg="linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #3b82f6 50%, #1d4ed8 75%, #1e3a8a 100%)"
           py={16}
           px={8}
           w="100vw"
@@ -1632,6 +1632,31 @@ export default function Home() {
               <Text color="white" fontSize="lg" lineHeight="1.6">
                 O CRM para melhorar o seu negócio
               </Text>
+              
+              {/* Botão Termos de Serviço */}
+              <Button
+                as="a"
+                href="/termos-servico"
+                size="sm"
+                variant="outline"
+                colorScheme="whiteAlpha"
+                mt={4}
+                borderRadius="full"
+                px={6}
+                py={2}
+                fontWeight="medium"
+                fontSize="sm"
+                _hover={{
+                  bg: "rgba(255, 255, 255, 0.1)",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 4px 15px rgba(255, 255, 255, 0.2)"
+                }}
+                transition="all 0.3s ease"
+                borderColor="rgba(255, 255, 255, 0.3)"
+                color="white"
+              >
+                Termos de Serviço
+              </Button>
             </Box>
 
             {/* Site - Centro */}
