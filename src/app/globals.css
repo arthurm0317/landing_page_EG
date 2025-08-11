@@ -1,13 +1,10 @@
+/* Forçar modo escuro globalmente */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #000000;
+  --foreground: #ffffff;
+  color-scheme: dark !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 html,
@@ -17,6 +14,9 @@ body {
   margin: 0;
   padding: 0;
   border: none;
+  color-scheme: dark !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 body {
@@ -29,23 +29,63 @@ body {
   padding: 0;
   border: none;
   outline: none;
+  color-scheme: dark !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color-scheme: dark !important;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  color-scheme: dark !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Garantir que todos os elementos tenham fundo escuro */
+div, section, main, header, footer, article, aside, nav {
+  color-scheme: dark !important;
+}
+
+/* Forçar fundo escuro em elementos com fundo transparente */
+[style*="background-color: transparent"], 
+[style*="background: transparent"] {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Forçar modo escuro em componentes do Chakra UI */
+[data-theme="dark"] {
+  color-scheme: dark !important;
+}
+
+/* Forçar cores escuras em elementos específicos */
+.chakra-ui-dark {
+  color-scheme: dark !important;
+}
+
+/* Garantir que elementos SVG tenham fundo escuro */
+svg {
+  color-scheme: dark !important;
+}
+
+/* Forçar modo escuro em elementos de formulário */
+input, textarea, select, button {
+  color-scheme: dark !important;
+}
+
+/* Garantir que elementos com backdrop-filter tenham fundo escuro */
+[style*="backdrop-filter"] {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Forçar modo escuro em elementos com gradientes */
+[style*="gradient"] {
+  color-scheme: dark !important;
 }
 
 
