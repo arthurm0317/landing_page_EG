@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { Flex, Box, Text, Icon, Button } from "@chakra-ui/react"
+import { Flex, Box, Text, Icon, Button, Heading } from "@chakra-ui/react"
 import { rgba } from "framer-motion";
 
 export default function Home() {
@@ -1482,8 +1482,67 @@ export default function Home() {
           </Flex>
         </Box>
       </section>
-
      
+      {/* Seção Conexão WhatsApp */}
+      <section className={styles.section}>
+        <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
+          <Box 
+            bg="rgba(6, 11, 25, 0.95)"
+            border="1px solid rgba(255, 255, 255, 0.05)"
+            borderRadius="2xl"
+            p={{ base: 6, md: 12 }}
+            boxShadow="0 20px 50px rgba(0, 0, 0, 0.6)"
+          >
+            <Flex direction={{ base: "column", md: "row" }} align="center" gap={10}>
+              <Box flex="1" textAlign="left">
+                <Box mb={6} display="inline-flex" alignItems="center" gap={3} px={4} py={2} border="1px solid rgba(255,255,255,0.2)" borderRadius="full" bg="rgba(255,255,255,0.05)">
+                  <Text fontWeight="bold" color="white">Conexão WhatsApp Inteligente</Text>
+                </Box>
+
+                <Heading as="h3" size="xl" color="white" mb={4}>
+                  Oficial com WhatsApp Meta & Versão Web
+                </Heading>
+                <Text color="gray.200" fontSize={{ base: "md", md: "lg" }} lineHeight="1.8" mb={6}>
+                  Integre sua operação ao WhatsApp oficial da Meta e também ao WhatsApp Web, garantindo estabilidade, segurança e a flexibilidade que sua equipe precisa. 
+                  Configure fluxos automáticos, monitore atendimentos em tempo real e of  ereça experiências humanas com a força da IA.
+                </Text>
+                <Text color="blue.200" fontWeight="bold" fontSize={{ base: "md", md: "xl" }} mb={8}>
+                  O canal favorito dos clientes agora alinhado à sua estratégia comercial.
+                </Text>
+
+                <Flex justify="center">
+                  <Button
+                    as="a"
+                    href="/whatsapp"
+                    size="lg"
+                    borderRadius="full"
+                    px={12}
+                    py={6}
+                    fontWeight="bold"
+                    fontSize="lg"
+                    bg="rgba(37, 211, 102, 0.15)"
+                    color="#25D366"
+                    border="1px solid rgba(37, 211, 102, 0.4)"
+                    _hover={{
+                      transform: 'translateY(-4px)',
+                      boxShadow: '0 10px 25px rgba(37, 211, 102, 0.4)',
+                      bg: 'rgba(37, 211, 102, 0.25)'
+                    }}
+                    transition="all 0.3s ease"
+                  >
+                    Saiba mais sobre nossas integrações
+                  </Button>
+                </Flex>
+              </Box>
+
+              <Box flex="0.8" display="flex" justifyContent="center">
+                <i className="bi bi-whatsapp" style={{ fontSize: '180px', color: 'rgba(255,255,255,0.9)' }}></i>
+              </Box>
+            </Flex>
+          </Box>
+        </Box>
+      </section>
+
       {/* Seção de Preço */}
       <section className={styles.section}>
         <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
