@@ -678,3 +678,12 @@ a.secondary {
     transform: scaleY(1);
   }
 }
+
+/* Estilos para corrigir boxes do Chakra UI */
+.page [data-theme] {
+  box-sizing: border-box !important;
+}
+
+.page [data-theme] > * {
+  box-sizing: border-box !important;
+}

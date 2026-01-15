@@ -1,6 +1,7 @@
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Provider } from "../components/ui/provider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         <meta name="supported-color-schemes" content="dark" />
       </head>
       <body className={`${spaceGrotesk.variable}`} style={{ colorScheme: 'dark', backgroundColor: '#000000', color: '#ffffff' }}>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );

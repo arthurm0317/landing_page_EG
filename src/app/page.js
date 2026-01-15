@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { Flex, Box, Text, Icon, Button, Heading } from "@chakra-ui/react"
+import { Flex, Box, Text, Icon, Button, Heading, Center } from "@chakra-ui/react"
 import { rgba } from "framer-motion";
 
 export default function Home() {
@@ -123,20 +123,20 @@ export default function Home() {
     const colors = { 'Kanban 1': '#10B981', 'Kanban 2': '#3B82F6', 'Kanban 3': '#F59E0B' };
     
     return (
-      <Box position="relative" w="900px" h="500px" mx="auto">
-        <svg width="900" height="500" viewBox="0 0 900 500">
+      <Box position="relative" w="100%" maxW="1200px" h="600px" mx="auto">
+        <svg width="150%" height="600" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" style={{ maxWidth: '1200px' }}>
           {/* Background */}
-          <rect width="900" height="500" fill="#1a1a1a" rx="12"/>
+          <rect width="1200" height="800" fill="#1a1a1a" rx="12"/>
           
           {/* Columns */}
           {columns.map((column, index) => (
             <g key={column}>
               {/* Column background - cinza escuro (incluindo título) */}
               <rect 
-                x={50 + index * 280} 
-                y="20" 
-                width="250" 
-                height="460" 
+                x={80 + index * 360} 
+                y="30" 
+                width="320" 
+                height="110%" 
                 fill="#2d3748" 
                 rx="8"
                 stroke="#4a5568"
@@ -145,21 +145,21 @@ export default function Home() {
               
               {/* Colored top border - mais baixa e menor */}
               <rect 
-                x={70 + index * 280} 
-                y="35" 
-                width="210" 
-                height="3" 
+                x={100 + index * 360} 
+                y="45" 
+                width="280" 
+                height="4" 
                 fill={colors[column]}
                 rx="2"
               />
               
               {/* Column title */}
               <text 
-                x={175 + index * 280} 
-                y="65" 
+                x={240 + index * 360} 
+                y="85" 
                 textAnchor="middle" 
                 fill="white" 
-                fontSize="16" 
+                fontSize="20" 
                 fontWeight="bold"
               >
                 {column}
@@ -167,10 +167,10 @@ export default function Home() {
               
               {/* Drop zone - área maior para melhor detecção */}
               <rect 
-                x={45 + index * 280} 
-                y="75" 
-                width="260" 
-                height="430" 
+                x={70 + index * 360} 
+                y="100" 
+                width="340" 
+                height="500" 
                 fill="transparent"
                 onDragOver={(e) => handleDragOver(e)}
                 onDrop={(e) => handleDrop(e, column)}
@@ -182,10 +182,10 @@ export default function Home() {
                 <g key={item.id}>
                   {/* Card background - cinza mais claro */}
                   <rect 
-                    x={60 + index * 280} 
-                    y={80 + itemIndex * 120} 
-                    width="230" 
-                    height="100" 
+                    x={90 + index * 360} 
+                    y={110 + itemIndex * 140} 
+                    width="300" 
+                    height="120" 
                     fill="#4a5568" 
                     rx="6"
                     stroke="#6b7280"
@@ -194,40 +194,40 @@ export default function Home() {
                   
                   {/* Colored top border for card */}
                   <rect 
-                    x={60 + index * 280} 
-                    y={80 + itemIndex * 120} 
-                    width="230" 
-                    height="3" 
+                    x={90 + index * 360} 
+                    y={110 + itemIndex * 140} 
+                    width="300" 
+                    height="4" 
                     fill={colors[column]}
                     rx="6"
                   />
                   
                   {/* Card content */}
                   <text 
-                    x={75 + index * 280} 
-                    y={105 + itemIndex * 120} 
+                    x={110 + index * 360} 
+                    y={140 + itemIndex * 140} 
                     fill="white" 
-                    fontSize="12" 
+                    fontSize="14" 
                     fontWeight="bold"
                   >
                     {item.name}
                   </text>
                   
                   <text 
-                    x={75 + index * 280} 
-                    y={165 + itemIndex * 120} 
+                    x={110 + index * 360} 
+                    y={210 + itemIndex * 140} 
                     fill="white" 
-                    fontSize="10"
+                    fontSize="12"
                   >
                     {item.phone}
                   </text>
                   
                   {/* Drag handle - área muito maior para melhor detecção */}
                   <rect 
-                    x={55 + index * 280} 
-                    y={75 + itemIndex * 120} 
-                    width="240" 
-                    height="110" 
+                    x={85 + index * 360} 
+                    y={105 + itemIndex * 140} 
+                    width="310" 
+                    height="130" 
                     fill="transparent"
                     draggable="true"
                     onDragStart={(e) => handleDragStart(e, item, column)}
@@ -240,8 +240,8 @@ export default function Home() {
         </svg>
         
         {/* Instructions */}
-        <Box position="absolute" bottom="-60px" left="0" right="0" textAlign="center">
-          <Text color="gray.400" fontSize="sm">
+        <Box position="absolute" bottom="-70px" left="5rem" right="0" textAlign="center" justify='center' justifyContent={'center'} alignSelf={'center'} w={'100%'}>
+          <Text color="gray.400" fontSize="md" width={'100%'}>
             Arraste os cards entre as colunas para testar o drag and drop
           </Text>
         </Box>
@@ -500,6 +500,8 @@ export default function Home() {
         mx="auto" 
         px={6}
         py={16}
+        position="relative"
+        zIndex={2}
       >
         <Box
           bg="rgba(255, 255, 255, 0.05)"
@@ -508,9 +510,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -527,6 +533,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-layout-kanban">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -551,9 +558,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -570,6 +581,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bot-icon lucide-bot">
               <path d="M12 8V4H8"/>
@@ -595,9 +607,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -614,6 +630,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-report-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -641,9 +658,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -660,6 +681,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -680,9 +702,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -699,6 +725,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-webhook">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -723,9 +750,13 @@ export default function Home() {
           borderRadius="xl"
           p={8}
           w="300px"
-          h="220px"
+          minH="220px"
           textAlign="center"
           transition="all 0.3s ease"
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          boxSizing="border-box"
           _hover={{
             transform: "translateY(-5px)",
             borderColor: "rgba(255, 255, 255, 0.2)",
@@ -742,6 +773,7 @@ export default function Home() {
             justifyContent="center"
             mx="auto"
             mb={4}
+            flexShrink={0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-bell">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -836,7 +868,7 @@ export default function Home() {
             </Box>
             
             {/* Layout em três colunas */}
-            <Flex gap={20} mt={24} wrap="wrap" justify="center">
+            <Flex gap={10} mt={24} wrap="wrap" justify="center">
             {/* Coluna 1 - O Que Nos Torna Únicos */}
             <Box flex="1" minW="350px" maxW="400px">
               <Box 
@@ -848,6 +880,7 @@ export default function Home() {
                 h="100%"
                 display="flex"
                 flexDirection="column"
+                boxSizing="border-box"
               >
                 <Text fontSize="2xl" fontWeight="bold" color="white" mb={8}>
                   O Que Nos Torna Únicos?
@@ -913,6 +946,7 @@ export default function Home() {
                 h="100%"
                 display="flex"
                 flexDirection="column"
+                boxSizing="border-box"
               >
                 <Text fontSize={{ base: "md", md: "2xl" }} fontWeight="bold" color="white" mb={8}>
                   Sobre Nós
@@ -942,6 +976,7 @@ export default function Home() {
                 h="100%"
                 display="flex"
                 flexDirection="column"
+                boxSizing="border-box"
               >
                 <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="bold" color="white" mb={8}>
                   Nossa Missão
@@ -1014,7 +1049,7 @@ export default function Home() {
       <section id="servicos" className={styles.section}>
         <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
           
-          <Flex gap={{ base: 6, md: 12 }} wrap="wrap" justify="center" align="center">
+          <Flex gap={{ base: 12, md: 12 }} wrap="wrap" justify="center" align="center">
             {/* Box do Kanban */}
             <Box 
               bg="rgba(255, 255, 255, 0.05)"
@@ -1023,17 +1058,21 @@ export default function Home() {
               borderRadius="xl"
               p={{ base: 4, md: 8 }}
               flex="1"
-              minW={{ base: "100%", md: "500px" }}
-              maxW={{ base: "100%", md: "600px" }}
+              minW={{ base: "100%", md: "1500px" }}
+              maxW={{ base: "300%", md: "3000px " }}
+              width="100%"
+              height={"100%"}
+              boxSizing="border-box"
+              justify='space-between'
             >
-              <Flex gap={{ base: 4, md: 8 }} align="center" direction={{ base: "column", md: "row" }}>
+              <Flex gap={{ base: 8, md: 12 }} align="center" direction={{ base: "column", md: "row" }} w="90%" marginTop={'0px'} h={600}> 
                 {/* Kanban Interativo */}
-                <Box flex="1">
+                <Box flex="1" minW="40%" w="90%" marginTop={-200}>
                   {renderKanban()}
                 </Box>
                 
                 {/* Descrição do CRM */}
-                <Box flex="1">
+                <Box flex="1" minW="80%" w="100%" padding={4} marginLeft={4}marginTop={-100}>
                   {/* Ícone acima do título */}
                   <Box textAlign="center" mb={4}>
                     <Box w="60px" h="60px" color="blue.400" mx="auto" display="flex" alignItems="center" justifyContent="center">
@@ -1110,11 +1149,13 @@ export default function Home() {
               p={{ base: 4, md: 8 }}
               flex="1"
               minW={{ base: "100%", md: "500px" }}
-              maxW={{ base: "100%", md: "600px" }}
+              maxW={{ base: "100%", md: "900px" }}
+              w="100%"
+              boxSizing="border-box"
             >
-              <Flex gap={{ base: 4, md: 8 }} align="center" direction={{ base: "column", md: "row" }}>
+              <Flex gap={{ base: 4, md: 8 }} align="center" direction={{ base: "column", md: "row" }} w="100%">
                 {/* Texto sobre Analytics */}
-                <Box flex="1">
+                <Box flex="1" minW="0" w="100%">
                   {/* Ícone acima do título */}
                   <Box textAlign="center" mb={4}>
                     <Box w="60px" h="60px" color="purple.400" mx="auto" display="flex" alignItems="center" justifyContent="center">
@@ -1140,7 +1181,7 @@ export default function Home() {
                 </Box>
 
                 {/* Gráfico */}
-                <Box flex="1" textAlign="center">
+                <Box flex="1" minW="0" w="100%" textAlign="center">
                   {/* Botões de controle */}
                   <Flex justify="center" gap={4} mb={6}>
                     <Button
@@ -1356,11 +1397,13 @@ export default function Home() {
               p={{ base: 4, md: 8 }}
               flex="1"
               minW={{ base: "100%", md: "500px" }}
-              maxW={{ base: "100%", md: "600px" }}
+              maxW={{ base: "100%", md: "900px" }}
+              w="100%"
+              boxSizing="border-box"
             >
-              <Flex gap={{ base: 4, md: 8 }} align="center" direction={{ base: "column", md: "row" }}>
+              <Flex gap={{ base: 4, md: 8 }} align="center" direction={{ base: "column", md: "row" }} w="100%">
                 {/* Imagem do Chat WhatsApp */}
-                <Box flex="1">
+                <Box flex="1" minW="0" w="100%">
                   <Box 
                     w="100%" 
                     h="400px" 
@@ -1453,7 +1496,7 @@ export default function Home() {
                 </Box>
                 
                 {/* Descrição do Chat */}
-                <Box flex="1">
+                <Box flex="1" minW="0" w="100%">
                   {/* Ícone acima do título */}
                   <Box textAlign="center" mb={4}>
                     <Box w="60px" h="60px" color="green.400" mx="auto" display="flex" alignItems="center" justifyContent="center">
@@ -1492,6 +1535,9 @@ export default function Home() {
             borderRadius="2xl"
             p={{ base: 6, md: 12 }}
             boxShadow="0 20px 50px rgba(0, 0, 0, 0.6)"
+            boxSizing="border-box"
+            display="flex"
+            flexDirection="column"
           >
             <Flex direction={{ base: "column", md: "row" }} align="center" gap={10}>
               <Box flex="1" textAlign="left">
@@ -1545,7 +1591,7 @@ export default function Home() {
 
       {/* Seção de Preço */}
       <section className={styles.section}>
-        <Box maxW="1200px" mx="auto" position="relative" zIndex="1">
+        <Box maxW="1500px" mx="auto" position="relative" zIndex="1">
           <Flex justify="center">
             <Box 
               bg="rgba(255, 255, 255, 0.05)"
@@ -1557,8 +1603,10 @@ export default function Home() {
               maxW={{ base: "100%", md: "500px" }}
               textAlign="center"
               transition="all 0.3s ease"
+              boxSizing="border-box"
+              display="flex"
+              flexDirection="column"
               _hover={{
-                transform: "translateY(-5px)",
                 borderColor: "rgba(255, 255, 255, 0.2)",
                 bg: "rgba(255, 255, 255, 0.08)"
               }}
@@ -1618,7 +1666,35 @@ export default function Home() {
                   <Text color="gray.300" fontSize="md">Suporte Personalizado</Text>
                 </Flex>
               </Flex>
-              
+              {/* Botão */}
+              <a 
+                href="/onboarding"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  marginRight: '5%',
+                  backgroundColor: '#1e3a8a',
+                  color: 'white',
+                  padding: '16px 32px',
+                  borderRadius: '50px',
+                  textDecoration: 'none',
+                  fontWeight: 'bold',
+                  fontSize: '18px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(173, 216, 230, 0.2)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(173, 216, 230, 0.1)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(173, 216, 230, 0.3)';
+                }}
+              >
+                Fazer cadastro
+              </a>
+
               {/* Botão */}
               <a 
                 href="https://wa.me/553184606370?text=Olá,%20gostaria%20de%20saber%20mais"
@@ -1634,11 +1710,11 @@ export default function Home() {
                   fontWeight: 'bold',
                   fontSize: '18px',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(37, 211, 102, 0.3)'
+                  boxShadow: '0 4px 15px rgba(37, 211, 102, 0.2)'
                 }}
                 onMouseOver={(e) => {
                   e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.4)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.1)';
                 }}
                 onMouseOut={(e) => {
                   e.target.style.transform = 'translateY(0)';
