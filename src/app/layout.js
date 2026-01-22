@@ -17,13 +17,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR" data-theme="dark" style={{ colorScheme: 'dark' }}>
+    <html lang="pt-BR" data-theme="dark" style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="theme-color" content="#000000" />
         <meta name="supported-color-schemes" content="dark" />
       </head>
-      <body className={`${spaceGrotesk.variable}`} style={{ colorScheme: 'dark', backgroundColor: '#000000', color: '#ffffff' }}>
+      <body className={`${spaceGrotesk.variable}`} style={{ colorScheme: 'dark', backgroundColor: '#000000', color: '#ffffff' }} suppressHydrationWarning>
         <Provider>
           {children}
         </Provider>

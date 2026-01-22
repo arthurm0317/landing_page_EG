@@ -65,6 +65,20 @@ export default function WhatsappPage() {
               <Text color="gray.300" fontSize="lg" lineHeight="1.8" mb={4}>
                 1. Acesse a aba de conexões: dentro do painel, localize a seção “Conexões”, onde estão listadas todas as integrações disponíveis do sistema.
               </Text>
+              <Box my={8} display="flex" justifyContent="center">
+                <Image 
+                  src="/whatsapp/excluirwpp.png"
+                  alt="Exemplo da tela de conexões da API oficial"
+                  width={1000}
+                  height={500}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(255,255,255,0.1)'
+                  }}
+                />
+              </Box>
               <Text color="gray.300" fontSize="lg" lineHeight="1.8">
                 2. Selecione a conexão WhatsApp Cloud API: encontre a integração correspondente e clique no ícone de lixeira. Será exibida a lista com todos os números oficiais vinculados. 
                 Escolha o número desejado e confirme a exclusão definitiva. Importante: ao remover o número, o sistema desconecta imediatamente a linha e apaga todos os dados relacionados a ela. 

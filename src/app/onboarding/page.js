@@ -103,13 +103,34 @@ export default function Onboarding() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // Aqui seria enviado para o backend
-      console.log("Dados do formulário:", formData);
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (!formData.email.trim() || !formData.password.trim()) {
+    alert('Preencha login e senha');
+    return;
+  }
+
+  if (!validateForm()) {
+    return;
+  }
+
+  console.log("Dados do formulário:", formData);
+
+  const url = '/page-pagamento/';
+  const features = 'popup=yes,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes,width=1000,height=800';
+
+  const newWin = window.open(url, '_blank', features);
+  if (newWin) {
+    try {
+      newWin.focus();
+    } catch (err) {
+      // ignore
     }
-  };
+  } else {
+    window.open(url, '_blank');
+  }
+};
 
   return (
     <div className={styles.page}>
